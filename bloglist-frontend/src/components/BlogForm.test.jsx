@@ -14,7 +14,7 @@ test('form calls the event handler with the correct details when a new blog is c
   const authorInput = inputs[1]
   const urlInput = inputs[2]
 
-  const sendButton = screen.getByText('create')
+  const sendButton = screen.getByRole('button', { name: /create/i })
 
   await user.type(titleInput, 'Testing Form Submissions')
   await user.type(authorInput, 'Test Author')
