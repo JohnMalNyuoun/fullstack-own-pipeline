@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "npm --prefix bloglist-frontend ci && npm --prefix bloglist-frontend run build",
     "lint": "eslint .",
     "lint:fix": "eslint . -- --fix",
     "test": "vitest run",
