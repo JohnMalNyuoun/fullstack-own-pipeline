@@ -5,16 +5,19 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   server: {
+    allowedHosts: ['fullstack-own-pipeline.onrender.com'],
     proxy: {
       '/api': {
         target: 'http://localhost:3003',
-        changeOrigin: true
-      }
-    }
+        changeOrigin: true,
+      },
+    },
   },
-
   test: {
     globals: true,
     environment: 'jsdom',
-  }
+  },
+  preview: {
+    allowedHosts: ['fullstack-own-pipeline.onrender.com'],
+  },
 })

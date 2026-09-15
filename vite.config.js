@@ -7,4 +7,7 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
+  preview: {
+    allowedHosts: ["fullstack-own-pipeline.onrender.com"],
+  },
 });
