@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm --prefix bloglist-frontend ci && npm --prefix bloglist-frontend run build",
+    "start": "node scripts/start.js",
     "lint": "eslint .",
     "lint:fix": "eslint . -- --fix",
     "test": "vitest run",
