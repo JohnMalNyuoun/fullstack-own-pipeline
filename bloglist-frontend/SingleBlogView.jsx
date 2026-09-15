@@ -1,4 +1,12 @@
-import { Paper, Typography, Box, Button, Link, Stack, Divider } from '@mui/material'
+import {
+  Paper,
+  Typography,
+  Box,
+  Button,
+  Link,
+  Stack,
+  Divider,
+} from '@mui/material'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import DeleteIcon from '@mui/icons-material/Delete'
 
@@ -8,7 +16,8 @@ const SingleBlogView = ({ blog, handleLike, handleRemove, currentUser }) => {
   }
 
   // Refined ownership logic
-  const username = typeof blog.user === 'string' ? blog.user : blog.user?.username
+  const username =
+    typeof blog.user === 'string' ? blog.user : blog.user?.username
   const isOwner = username === currentUser?.username
 
   const addLike = () => {
@@ -17,7 +26,7 @@ const SingleBlogView = ({ blog, handleLike, handleRemove, currentUser }) => {
       likes: (blog.likes || 0) + 1,
       author: blog.author,
       title: blog.title,
-      url: blog.url
+      url: blog.url,
     }
     handleLike(blog.id, updatedBlog)
   }
@@ -27,7 +36,7 @@ const SingleBlogView = ({ blog, handleLike, handleRemove, currentUser }) => {
       <Typography variant="h4" gutterBottom fontWeight="bold">
         {blog.title}
       </Typography>
-      
+
       <Typography variant="h6" color="text.secondary" gutterBottom>
         By {blog.author}
       </Typography>
@@ -44,11 +53,11 @@ const SingleBlogView = ({ blog, handleLike, handleRemove, currentUser }) => {
         <Typography variant="h6">
           Likes: <strong>{blog.likes || 0}</strong>
         </Typography>
-        
+
         {currentUser && (
-          <Button 
-            variant="contained" 
-            startIcon={<ThumbUpIcon />} 
+          <Button
+            variant="contained"
+            startIcon={<ThumbUpIcon />}
             onClick={addLike}
           >
             Like
@@ -61,9 +70,9 @@ const SingleBlogView = ({ blog, handleLike, handleRemove, currentUser }) => {
       </Typography>
 
       {isOwner && (
-        <Button 
-          variant="outlined" 
-          color="error" 
+        <Button
+          variant="outlined"
+          color="error"
           startIcon={<DeleteIcon />}
           onClick={() => handleRemove(blog)}
         >
